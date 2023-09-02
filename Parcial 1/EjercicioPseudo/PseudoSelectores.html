@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;  
+            max-width:500px;
+            margin: 100px;
+        }
+        table{
+              width: 1000px;
+              margin: 100px;
+            }
+        th, td {
+            width: 25%;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 0.3em;
+            caption-side: bottom;
+            }
+            #soporte {
+            background: #ab8836;
+            text-align: center;
+            font-size: 30px;
+           
+            }
+            #soporte2 {
+            background:  #fecc51;
+            text-align: center;
+            font-size: 30px;
+            }
+
+        .parrafo{
+            color: gray;
+            line-height: 1.5em;
+        }
+
+        #par1{
+            font-size: 20px;
+        }
+        h1{
+            margin-top: 0;
+            color: blue;
+        }
+    
+        div~p{color: green;
+            font-size: 30px;
+
+        }
+        div p {
+            color: blue;
+            font-size: 30px;
+        }
+        div+p{color: red;
+            font-size: 30px;
+
+        }
+        tbody tr:nth-child(odd){
+            background-color: aqua;
+        }
+        
+        td:hover{
+            background-color: blue;
+            color: white;
+        }
+        td:active{
+            background-color: brown;
+        }
+        table #soporte2:nth-child(even){
+            background-color: green;
+            
+        }
+       
+        table #soporte2:hover{
+            color: green;
+            
+        }
+        p:first-letter{
+            font-size: 100px;
+            color: Blue;
+        }
+        p:first-line{
+            text-decoration:underline;
+        }
+      a{
+        font-size: 40px;
+      }
+       a:link{
+        color: red;
+       }
+       a:visited{
+        color: green;
+       }
+        
+        
+      
+    </style>     
+</head>
+<body>
+ 
+    <h1>¿Qué es una etiqueta HTML y cuáles son las más importantes?</h1>
+    <p id="par1" class="parrafo">Iniciarse en el mundo de la programación web es una decisión que cada vez más personas toman, conscientes de las oportunidades profesionales que supone contar con este tipo de conocimientos tan valorados por las empresas de hoy en día. Comprender el significado y la composición de las etiquetas HTML es uno de los primeros pasos que cualquier profesional que aspire a convertirse en desarrollador o ingeniero web debe dar.</p>
+    <p id="par2" class="parrafo">Con el objetivo de que entiendas qué es una etiqueta HTML, uno de los conceptos básicos con los que trabajarás en programas tan solicitados como nuestro Executive Master en Marketing Digital, Analítica y UX, queremos enseñarte cómo funciona la capa más básica de una web y que puedas lanzarte a diseñar las tuyas sin miedo. ¿Nos acompañas en esta guía introductoria?</p>
+    <div class="clase" id="id4">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>  
+    <div><p>este esta adentro del div</p></div>
+    <p>este es con +</p>
+    <p>este es con ~</p>
+    <p>este es con ~</p>
+    <div></div><p>Este es + tambien</p>
+    <p>este es ~</p>
+    <a href="https://www.wikidex.net/wiki/WikiDex">https://www.wikidex.net/wiki/WikiDex</a>
+    <a href="https://www.wikidex.net/wiki/Lista_de_eventos_de_Pokémon_GO#Una_aventura_de_Paldea">https://www.wikidex.net/wiki/Lista_de_eventos_de_Pokémon_GO#Una_aventura_de_Paldea</a>
+    <a href="https://www.wikidex.net/wiki/Gimmighoul">https://www.wikidex.net/wiki/Gimmighoul</a>
+    <a href="https://www.wikidex.net/wiki/Gimmighoul#Etimolog%C3%ADa">https://www.wikidex.net/wiki/Gimmighoul#Etimolog%C3%ADa</a>
+    <a href="https://www.wikidex.net/wiki/Gholdengo">https://www.wikidex.net/wiki/Gholdengo</a>
+    <a href="https://www.wikidex.net/wiki/Baxcalibur">https://www.wikidex.net/wiki/Baxcalibur</a>
+    <a href="https://www.wikidex.net/wiki/Novena_generaci%C3%B3n">https://www.wikidex.net/wiki/Novena_generaci%C3%B3n</a>
+    
+
+
+    <table>
+        <thead>
+            <tr><th>Columna 1</th><th>Columna 2</th><th>Columna 3</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Celda 1-1</td><td>Celda 1-2</td><td>Celda 1-3</td></tr>
+            <tr><td>Celda 2-1</td><td>Celda 2-2</td><td>Celda 2-3</td></tr>
+            <tr><td>Celda 3-1</td><td>Celda 3-2</td><td>Celda 3-3</td></tr>
+            <tr><td>Celda 4-1</td><td>Celda 4-2</td><td>Celda 4-3</td></tr>
+            <tr><td>Celda 5-1</td><td>Celda 5-2</td><td>Celda 5-3</td></tr>
+            <tr><td>Celda 6-1</td><td>Celda 6-2</td><td>Celda 6-3</td></tr>
+        </tbody>
+    </table>
+    <table>
+        <table>
+            <tr>
+        
+                <th id="soporte">Pokemon</th>
+            
+                <th id="soporte">Tier</th>
+            
+                <th id="soporte">Linea</th>
+        
+                <th id="soporte">Dificultad</th>
+            
+              </tr>
+            
+              <tr>
+            
+                <td id="soporte2" rowspan="2"><div><img id="roster" src="https://unite.pokemon.com/images/pokemon/comfey/stat/stat-comfey.png"></div><p>Comfey</p></td>
+            
+                <td id="soporte2" ><div><img id="tier" src="https://img.game8.co/3413596/1441f3edc998d40ca654a6bf3575ac65.png/show"></div></td>
+            
+                <td id="soporte2"><p>Inferior</p></td>
+        
+                <td id="soporte2"><p>Baja</p></td>
+            
+              </tr>
+              <tr>
+                <td id="soporte2" colspan="3" ><p>Paséate con alegría por Æos con este florido auxiliar de largo alcance. Fortalece a tu equipo con el poder floral de Comfey en Pokémon UNITE.</p></td>
+        
+              </tr>
+              <tr>
+            
+                <td id="soporte2" rowspan="2"><div><img id="roster" src="https://unite.pokemon.com/images/pokemon/sableye/stat/stat-sableye.png"></div><p>Sableye</p></td>
+            
+                <td id="soporte2" ><div><img id="tier" src="https://img.game8.co/956959/c0f0e4f403f29e8b66663da418259ca5_2017-05-05.png/show"></div></td>
+            
+                <td id="soporte2"><p>Superior / Inferior</p></td>
+        
+                <td id="soporte2"><p>Media</p></td>
+            
+              </tr>
+              <tr>
+                <td id="soporte2" colspan="3" ><p>Agarra desprevenidos a tus rivales con este Pokémon de tipo Fantasma que llega a Æos dispuesto a sembrar el caos. Desarma a tus rivales de Pokémon UNITE con Sableye.</p></td>
+        
+              </tr>
+              <tr>
+            
+                <td id="soporte2" rowspan="2"><div><img id="roster" src="https://unite.pokemon.com/images/pokemon/clefable/stat/stat-clefable.png"></div><p>clefable</p></td>
+            
+                <td id="soporte2" ><div><img id="tier" src="https://img.game8.co/956959/c0f0e4f403f29e8b66663da418259ca5_2017-05-05.png/show"></div></td>
+            
+                <td id="soporte2"><p>Superior / Inferior</p></td>
+        
+                <td id="soporte2"><p>Baja</p></td>
+            
+              </tr>
+              <tr>
+                <td id="soporte2" colspan="3" ><p>Canaliza tu poder cósmico y eclipsa a tus rivales en Pokémon UNITE con este extraordinario Pokémon auxiliar de corto alcance.</p></td>
+        
+              </tr>
+        
+              <tr>
+            
+                <td id="soporte2" rowspan="2"><div><img id="roster" src="https://unite.pokemon.com/images/pokemon/hoopa/stat/stat-hoopa.png"></div><p>Hoopa</p></td>
+            
+                <td id="soporte2" ><div><img id="tier" src="https://img.game8.co/3413596/1441f3edc998d40ca654a6bf3575ac65.png/show"></div></td>
+            
+                <td id="soporte2"><p>Superior / Inferior</p></td>
+        
+                <td id="soporte2"><p>Alta</p></td>
+            
+              </tr>
+              <tr>
+                <td id="soporte2" colspan="3" ><p>Sorprende a tus rivales con los trucos y artimañas de Hoopa, que ya está disponible en Pokémon UNITE. Es un Pokémon auxiliar de largo alcance complejo tácticamente hablando, aunque si se juega siguiendo una estrategia eficaz, puede ayudar a sus aliados a recuperar PS y a desplazarse rápidamente por el mapa, además de infligir daño con ataques muy inquietantes.</p></td>
+        
+              </tr>
+        
+              <tr>
+            
+                <td id="soporte2" rowspan="2"><div><img id="roster" src="https://unite.pokemon.com/images/pokemon/blissey/stat/stat-blissey.png"></div><p>Blissey</p></td>
+            
+                <td id="soporte2" ><div><img id="tier" src="https://img.game8.co/956960/3f3615d016e40a12b6ef5f7d1e3dbace_2017-05-05.png/show"></div></td>
+            
+                <td id="soporte2"><p>Superior / Inferior</p></td>
+        
+                <td id="soporte2"><p>Baja</p></td>
+            
+              </tr>
+              <tr>
+                <td id="soporte2" colspan="3" ><p>Blissey destaca cuando se trata de ayudar a su equipo gracias a los movimientos que restauran PS, curan los problemas de estado y potencian a sus aliados.</p></td>
+        
+              </tr>
+        
+              <tr>
+            
+                <td id="soporte2" rowspan="2"><div><img id="roster" src="https://unite.pokemon.com/images/pokemon/eldegoss/stat/stat-eldegoss.png"></div><p>Eldegoss</p></td>
+            
+                <td id="soporte2" ><div><img id="tier" src="https://img.game8.co/3413596/1441f3edc998d40ca654a6bf3575ac65.png/show"></div></td>
+            
+                <td id="soporte2"><p>Superior / Inferior</p></td>
+        
+                <td id="soporte2"><p>Baja</p></td>
+            
+              </tr>
+              <tr>
+                <td id="soporte2" colspan="3" ><p>Eldegoss es un increíble Pokémon auxiliar, ya que puede restaurar los HP (PS) de sus aliados y aumentar su velocidad de desplazamiento.</p></td>
+        
+              </tr>
+              
+              <tr>
+            
+                <td id="soporte2" rowspan="2"><div><img id="roster" src="https://unite.pokemon.com/images/pokemon/mr-mime/stat/stat-mr-mime.png"></div><p>Mr. Mime</p></td>
+            
+                <td id="soporte2" ><div><img id="tier" src="https://img.game8.co/956962/093a9a7ec713e5366d2b9ff526411ad3_2017-05-05.png/show"></div></td>
+            
+                <td id="soporte2"><p>Superior / Inferior</p></td>
+        
+                <td id="soporte2"><p>Baja</p></td>
+            
+              </tr>
+              <tr>
+                <td id="soporte2" colspan="3" ><p>La especialidad de Mr. Mime es restringir a los rivales con sus movimientos complejos.</p></td>
+        
+              </tr>
+        
+              <tr>
+            
+                <td id="soporte2" rowspan="2"><div><img id="roster" src="https://unite.pokemon.com/images/pokemon/wigglytuff/stat/stat-wigglytuff.png"></div><p>Wigglytuff</p></td>
+            
+                <td id="soporte2" ><div><img id="tier" src="https://img.game8.co/956959/c0f0e4f403f29e8b66663da418259ca5_2017-05-05.png/show"></div></td>
+            
+                <td id="soporte2"><p>Inferior</p></td>
+        
+                <td id="soporte2"><p>Media</p></td>
+            
+              </tr>
+              <tr>
+                <td id="soporte2" colspan="3" ><p>Wigglytuff aprende muchos movimientos con los que puede pararles los pies a sus rivales, de modo que juega un papel muy importante a la hora de crear tácticas y ayudar a sus compañeros de equipo.</p></td>
+        
+              </tr>
+           </table>
+
+    </table>
+
+</body>
+</html>
