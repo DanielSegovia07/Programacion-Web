@@ -52,9 +52,15 @@
             font-size: 30px;
 
         }
+      
         div p {
             color: blue;
             font-size: 30px;
+        }
+        div > p{
+          color: orange;
+          font-size: 30px;
+
         }
         div+p{color: red;
             font-size: 30px;
@@ -114,10 +120,16 @@
             <li></li>
         </ul>
     </div>  
-    <div><p>este esta adentro del div</p></div>
+    <div><p>este esta adentro del div pero es descendiente directo</p></div>
     <p>este es con +</p>
     <p>este es con ~</p>
     <p>este es con ~</p>
+    <div>
+      <p>parrafo</p>
+      <span><p>parrafo no hijo directo</p></span>
+      <div><p>parrafo de div dentro de div</p><span><p>parrafo profundo 2 </p></span></div><p>parrafo+</p><p>parrafo naranja</p>
+    </div>
+    <p>parrafo rojo</p><p>parrafo verde</p>
     <div></div><p>Este es + tambien</p>
     <p>este es ~</p>
     <a href="https://www.wikidex.net/wiki/WikiDex">https://www.wikidex.net/wiki/WikiDex</a>
