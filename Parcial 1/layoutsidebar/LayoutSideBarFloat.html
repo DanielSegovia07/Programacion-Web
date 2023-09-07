@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .cont{
+            border: 2px solid blue;
+            background-color: aqua;
+            color: blue;
+            float: left;
+            height: 100%;
+        }
+        .cont2{
+            border: 2px solid blue;
+            background-color: aqua;
+            color: blue;
+            clear: left;
+            height: 100%;
+        }
+        #sidebar{
+            width: 30%;
+        }
+        #content{
+            width: 70%;
+        }
+        #header{
+            height: 10%;;
+        }
+    </style>
+</head>
+<body>
+    <div id="header" class="cont2">Header</div>
+    <div id="sidebar" class="cont">SideBar</div>
+    <div id="content" class="cont">Content</div>
+</body>
+</html>
