@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+        min-height: 100vh;
+       }
+       .main-container{
+        display: flex;
+        min-height: calc(100vh - 100px);
+       }
+       .header{
+        height: 100px;
+        background-color: lightblue;
+        display: flex;
+       }
+       .sidebar{
+        min-width: 300px;
+        background-color: lightgrey;
+        display: flex;
+       }
+       .content{
+        flex-grow: 1;
+        display: flex;
+        background-color: RED;
+       }
+    </style>
+</head>
+<body>
+   
+    <div class="header"><h1>HEADER</h1></div>
+    <div class="main-container">
+        <div class="sideBar"><H1>SIDEBAR</H1></div>
+        <div class="content"><h1>CONTENT</h1></div>
+    </div>
+   
+</body>
+</html>
