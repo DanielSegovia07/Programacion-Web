@@ -1,0 +1,53 @@
+/*VARIABLES*/
+body:has(input:checked) {
+  background-color: lime;
+}
+input:checked + div#contenedor {
+  background-color: lime;
+}
+/*  div#contenedor{
+                background-color: @color-primario;
+            } */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+}
+/*   .parrafo{
+                color: gray;
+                line-height: 1.5em;
+            } */
+#par1 {
+  font-size: 20px;
+}
+/*  h1{
+                margin-top: 0;
+                color: blue;
+            } */
+div ~ p {
+  color: green;
+  font-size: 30px;
+}
+div p {
+  color: blue;
+  font-size: 30px;
+}
+div + p {
+  color: red;
+  font-size: 30px;
+}
+/*anidacion*/
+div#contenedor {
+  background-color: cyan;
+}
+div#contenedor h1 {
+  margin-top: 0;
+  color: blue;
+}
+div#contenedor h2 {
+  color: red;
+}
+div#contenedor .parrafo {
+  color: gray;
+  line-height: 1.5em;
+}
