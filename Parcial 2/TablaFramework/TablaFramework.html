@@ -4,79 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style> 
-    *{
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    table {
-        width: 100%;
-        border: 1px solid #000;
-        border-collapse: collapse;
-        
-    }
-    
-           
-    th, td {
-        border: 1px solid #000;
-        border-collapse: collapse;
-
-     }
-     tbody tr:nth-child(even){
-            background-color:cyan ;
-        }
-
-    @media screen and (max-width:600px) {
-
-        table,thead,tbody,tr,th,td{
-            display: block;
-        }
-        thead{
-            display: none;
-        }
-        td{
-            padding-left: 50%;
-            height: calc(2em + 1em);
-        }
-        td:nth-child(1){
-           text-align: center;
-           padding-left: 0;
-           background-color: lightblue;
-        }
-        td:nth-child(2)::before{
-            content:"Lunes" ;
-            position: absolute;
-            left: 10px;
-        }
-        td:nth-child(3)::before{
-            content:"Martes" ;
-            position: absolute;
-            left: 10px;
-        }
-        td:nth-child(4)::before{
-            content:"Miercoles" ;
-            position: absolute;
-            left: 10px;
-        }
-        td:nth-child(5)::before{
-            content:"Jueves" ;
-            position: absolute;
-            left: 10px;
-        }
-        td:nth-child(6)::before{
-            content:"Viernes" ;
-            position: absolute;
-            left: 10px;
-        }
-    }        
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
 </head>
 <body>
     <h1>Tabla responsiva</h1>
-    <table>
+    <table class="pure-table">
         <thead>
-            <tr>
+            <tr class="pure-table-odd">
                 <th>Hora</th>
                 <th>Lunes</th>
                 <th>Martes</th>
@@ -94,7 +28,7 @@
                 <td>Programacion Web</td>
                 <td>Programacion Web</td>
             </tr>
-            <tr>
+            <tr class="pure-table-odd">
                 <td>8:00 - 9:00</td>
                 <td>Arquitectura de computadoras</td>
                 <td>Sistemas operativos</td>
@@ -110,7 +44,7 @@
                 <td>Sistemas operativos</td>
                 <td>Arquitectura de computadoras</td>
             </tr>
-            <tr>
+            <tr class="pure-table-odd">
                 <td>10:00 - 11:00</td>
                 <td></td>
                 <td>Graficacion</td>
@@ -126,7 +60,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr class="pure-table-odd">
                 <td>12:00 - 1:00</td>
                 <td>Fundamentos de telecomunicaciones</td>
                 <td>Ingenieria de software</td>
@@ -142,7 +76,7 @@
                 <td>Ingenieria de software</td>
                 <td>Ingenieria de software</td>
             </tr>
-            <tr>
+            <tr class="pure-table-odd">
                 <td>2:00 - 3:00</td>
                 <td>Taller de bases de datos</td>
                 <td>Taller de bases de datos</td>
