@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .cont{
+            border: 2px solid blue;
+            background-color: aqua;
+            color: blue;
+            height: 100%;
+            position: absolute;
+        }
+        .cont2{
+            border: 2px solid blue;
+            background-color: turquoise;
+            color: blue;
+            position: static;
+            height: 100%;
+            
+        }
+        .cont3{
+            border: 2px solid blue;
+            background-color: lightblue;
+            color: blue;
+            position: absolute;
+            height: 100%;
+            
+        }
+        #sidebar{
+            width: 30%;
+            
+        }
+        #content{
+            right:0;
+            width: 70%;
+        }
+        #header{
+            height: 10%;
+        }
+        h1{
+            font-size: 60px;
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+            font-size: 40px;
+        }
+      /*input#toggle{
+            display: none;
+        } */
+
+        .sideBarEscondido{
+            display: none;
+        }
+        .contenidoAlCien{
+            width: 100% !important;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="header" class="cont2">
+        <h1>Header</h1>
+    </div>
+    <div id="sidebar" class="cont3"><h1>Sidebar</h1></div>
+    <div id="content" class="cont">
+        <button id="btn" type="button">ToggleMenu</button>
+        <h3>content</h3>
+    </div>
+    <script>
+        /* let btnMenu = document.getElementById("btn");
+        btnMenu.addEventListener("click",function(){
+            console.log("Click en el boton");
+        });*/
+        document.getElementById("btn").addEventListener("click",function(){
+            console.log("Click en el boton");
+            document.getElementById("sidebar").classList.toggle("sideBarEscondido");
+            document.getElementById("content").classList.toggle("contenidoAlCien");
+            });
+    </script>
+</body>
+</html>
