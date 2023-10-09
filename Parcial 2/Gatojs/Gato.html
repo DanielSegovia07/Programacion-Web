@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <style>
          *{
             box-sizing: border-box;
@@ -36,6 +37,13 @@
             align-self: center;
             justify-self: center;
         }
+        .jugador-x {
+            color: blue;
+        }
+
+        .jugador-o {
+            color: red;
+        }
        
       
     </style>
@@ -57,14 +65,22 @@
        
     </div>
     <script>
-        var xo = "X"
+        /* window.onload=function(){
+            var xo = "X"
         document.getElementById("cont").addEventListener("click",function(e){
             console.log(e.target.id);
             
             if(document.getElementById(e.target.id).innerText==""){
             if(xo=="X"){xo="O"}else{xo="X"}
             document.getElementById(e.target.id).innerText=xo;
+            if(xo=="X"){
+                e.target.classList.add(xo,'jugador-x');
             }
+            if(xo=="O"){
+                e.target.classList.add(xo,'jugador-o');
+            }
+            }
+           
         })
 
         document.getElementById("btnlim").addEventListener("click",function(e){
@@ -73,8 +89,27 @@
             
             for (const elemento of cajas) {
                 elemento.innerText="";
+                elemento.classList.remove('jugador-x');
+                elemento.classList.remove('jugador-o');
             }
         })
+        } */
+     
+        $('document').ready(function(){
+            var xo = "X"
+            $("#cont").click(function(e){
+                if($(e.target).text()==""){
+                    if(xo=="X"){xo="O"} else {xo="X"}
+                    $(e.target).text(xo);
+                }
+            });
+
+            $("btnLimp").click(function(){
+                $(".caja").each(function(){
+                    console.log(this);
+                });
+            });
+        });
     </script>
 </body>
 </html>
