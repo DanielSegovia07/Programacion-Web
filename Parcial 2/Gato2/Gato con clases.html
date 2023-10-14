@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <style>
          *{
             box-sizing: border-box;
@@ -37,6 +36,10 @@
             align-self: center;
             justify-self: center;
         }
+        #caja12{
+            font-size: 20px;
+            line-height: 2em;
+        }
         .jugador-x {
             color: blue;
         }
@@ -44,11 +47,18 @@
         .jugador-o {
             color: red;
         }
+
+        .ganador {
+            font-weight: bold;
+            color: red;
+        }
        
       
     </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.min.css">
 </head>
 <body>
+    
     <div id="cont" class="contenedor">
         <div id="caja1" class="caja"></div>
         <div id="caja2" class="caja"></div>
@@ -64,53 +74,69 @@
         <div id="caja12"></div>
        
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.all.min.js"></script>
+
     <script>
-        /* window.onload=function(){
-            var xo = "X"
-        document.getElementById("cont").addEventListener("click",function(e){
-            console.log(e.target.id);
-            
-            if(document.getElementById(e.target.id).innerText==""){
-            if(xo=="X"){xo="O"}else{xo="X"}
-            document.getElementById(e.target.id).innerText=xo;
-            if(xo=="X"){
-                e.target.classList.add(xo,'jugador-x');
+
+        let esJugadorUno = true;
+        let cajas = document.getElementsByClassName("caja");
+
+        for (let i = 0; i < cajas.length; i++) {
+            cajas[i].addEventListener('click', movimientoUsuario);
+        }
+
+        function movimientoUsuario(e) {
+            let valorCelda = e.target.innerHTML;
+            if (!valorCelda.length) {
+                e.target.innerHTML = esJugadorUno ? 'X' : 'O';
+                e.target.classList.add(esJugadorUno ? 'jugador-x' : 'jugador-o');
+                esJugadorUno = !esJugadorUno;
+
+                verificarLinea(0, 1, 2);
+                verificarLinea(3, 4, 5);
+                verificarLinea(6, 7, 8);
+                verificarLinea(0, 3, 6);
+                verificarLinea(1, 4, 7);
+                verificarLinea(2, 5, 8);
+                verificarLinea(0, 4, 8);
+                verificarLinea(6, 4, 2);
             }
-            if(xo=="O"){
-                e.target.classList.add(xo,'jugador-o');
+        }
+
+        function verificarLinea(c1, c2, c3) {
+            if (
+                cajas[c1].innerHTML.length &&
+                cajas[c1].innerHTML == cajas[c2].innerHTML &&
+                cajas[c2].innerHTML == cajas[c3].innerHTML
+            ) {
+                /* alert('El ganador es el jugador ' + cajas[c1].innerHTML);
+                mostrarGanador(cajas[c1].innerHTML); */
+            Swal.fire({
+            title: '¡Tenemos un ganador!',
+            text: 'El ganador es el jugador ' + cajas[c1].innerHTML,
+            icon: 'success'
+        });
             }
-            }
-           
-        })
+         
+        }
+
+        function mostrarGanador(jugador) {
+            document.querySelector('#caja12').innerHTML = jugador + " gana";
+            document.querySelector('#caja12').classList.add('ganador');
+        }
 
         document.getElementById("btnlim").addEventListener("click",function(e){
-            
+            esJugadorUno = true;
             let cajas = document.getElementsByClassName("caja");
-            
+            document.querySelector('#caja12').innerHTML = " ";
             for (const elemento of cajas) {
                 elemento.innerText="";
                 elemento.classList.remove('jugador-x');
                 elemento.classList.remove('jugador-o');
             }
-        })
-        } */
-     
-        $('document').ready(function(){
-            var xo = "X"
-            $("#cont").click(function(e){
-                if($(e.target).text()==""){
-                    if(xo=="X"){xo="O"} else {xo="X"}
-                    $(e.target).text(xo);
-                }
-            });
-
-            $("#btnlim").click(function(){
-                $(".caja").each(function(){
-                    console.log(this);
-                    $(this).text("");
-                });
-            });
-        });
+            
+        }) 
     </script>
 </body>
 </html>

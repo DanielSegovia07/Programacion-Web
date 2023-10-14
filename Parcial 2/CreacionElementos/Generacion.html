@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor"></div>
+    <script>
+        let encabezados = ['Hora', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
+        let datos = [{
+            Hora:"7:00 - 8:00",
+            Lunes: "Programación web",
+            Martes: "Programación web",
+            Miercoles: "Programación web",
+            Jueves: "Programación web",
+            Viernes: "Programación web"
+        },{
+            Hora:"8:00 - 9:00",
+            Lunes: "Arquitectura de computadoras",
+            Martes: "Sistemas operativos",
+            Miercoles: "Arquitectura de computadoras",
+            Jueves: "Sistemas operativos",
+            Viernes: "Arquitectura de computadoras"
+        },{
+            Hora:"9:00 - 10:00",
+            Lunes: "  ",
+            Martes: "Sistemas operativos",
+            Miercoles: "Arquitectura de computadoras",
+            Jueves: "Sistemas operativos",
+            Viernes: "Arquitectura de computadoras"
+        },{
+            Hora:"10:00 - 11:00",
+            Lunes: "  ",
+            Martes: "Graficacion",
+            Miercoles: "Graficacion",
+            Jueves: "Graficacion",
+            Viernes: "Graficacion"
+        },{
+            Hora:"11:00 - 12:00",
+            Lunes: " ",
+            Martes: " ",
+            Miercoles: "  ",
+            Jueves: "  ",
+            Viernes: "  "
+        },{
+            Hora:"12:00 - 1:00",
+            Lunes: "Fundamentos de telecomunicaciones",
+            Martes: "Ingenieria de software",
+            Miercoles: "Fundamentos de telecomunicaciones",
+            Jueves: "Ingenieria de software",
+            Viernes: "  "
+        },{
+            Hora:"1:00 - 2:00",
+            Lunes: "Fundamentos de telecomunicaciones",
+            Martes: "Ingenieria de software",
+            Miercoles: "Fundamentos de telecomunicaciones",
+            Jueves: "Ingenieria de software",
+            Viernes: "Ingenieria de software"
+        },{
+            Hora:"2:00 - 3:00",
+            Lunes: "Taller de base de datos",
+            Martes: "Taller de base de datos",
+            Miercoles: "Taller de base de datos",
+            Jueves: "Taller de base de datos",
+            Viernes: "  "
+        }];
+        
+        let tab = document.createElement("table");
+        tab.style.width = "100% ";
+        tab.style.border = "1px solid #000";
+
+        let enc = document.createElement("thead");
+        enc.style.border = "1px solid #000"
+
+        let fil = document.createElement("tr");
+
+        encabezados.forEach(elemento=>{
+            let th = document.createElement("th");
+            th.innerText = elemento;
+            fil.appendChild(th);
+        });
+
+        enc.appendChild(fil);
+        tab.appendChild(enc);
+
+         tbody = document.createElement("tbody");
+
+        datos.forEach(function(elemento){
+            let fila = document.createElement("tr");
+
+            let td1 = document.createElement("td");
+            td1.style.border = "1px solid #000"
+            td1.innerText=elemento.Hora;
+            fila.appendChild(td1);
+
+            let td2 = document.createElement("td");
+            td2.style.border = "1px solid #000"
+            td2.innerText=elemento.Lunes;
+            fila.appendChild(td2);
+
+            let td3 = document.createElement("td");
+            td3.style.border = "1px solid #000"
+            td3.innerText=elemento.Martes;
+            fila.appendChild(td3);
+
+            let td4 = document.createElement("td");
+            td4.style.border = "1px solid #000"
+            td4.innerText=elemento.Miercoles;
+            fila.appendChild(td4);
+
+            let td5 = document.createElement("td");
+            td5.style.border = "1px solid #000"
+            td5.innerText=elemento.Jueves;
+            fila.appendChild(td5);
+
+            let td6 = document.createElement("td");
+            td6.style.border = "1px solid #000"
+            td6.innerText=elemento.Viernes;
+            fila.appendChild(td6);
+            tbody.appendChild(fila);
+       
+        });
+        
+
+        tab.appendChild(tbody); 
+
+        document.getElementById("contenedor").appendChild(tab);
+    </script>
+</body>
+</html>
