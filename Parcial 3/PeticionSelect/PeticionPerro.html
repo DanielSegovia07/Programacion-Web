@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .cont {
+            background: url('https://png.pngtree.com/background/20220731/original/pngtree-many-breeds-of-dogs-picture-image_1907838.jpg') no-repeat center center fixed;
+            background-size: cover;
+        
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="cont">
+    <select id="razas" class="form-control"></select>
+    <div class="container text-center">
+    <button id="Peticion" type="button" class="btn btn-primary">Peticion</button><br>
+    <img src="" id="fotoperro" class="img-fluid mx-auto"></div>
+    
+    <script>
+        window.onload = function(){
+        fetch("https://dog.ceo/api/breeds/list/all")
+        .then(respuesta=>respuesta.json())
+            .then(function(dato){
+                for (const property in dato.message) {
+                        console.log(dato.message)
+                        let option = document.createElement("option")
+                        option.value = property
+                        option.innerText = property
+                        document.getElementById("razas").appendChild(option)
+                }
+            });
+        }  
+        document.getElementById("Peticion").addEventListener("click", () => {
+            let option = document.getElementById("razas").value; 
+            fetch(`https://dog.ceo/api/breed/${option}/images/random`)    
+            .then(respuesta=>respuesta.json())
+            .then(function(dato){
+                document.getElementById("fotoperro").src = dato.message
+                console.log(dato.message)
+            }) 
+        });
+       
+    </script>
+</body>
+</html>

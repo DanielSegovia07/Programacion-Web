@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Repositorios de GitHub</title>
+    <style>
+         .cont {
+        background-color: paleturquoise;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="cont">
+    <h1>Lista de Repositorios de GitHub</h1>
+    <div class="rounded bg-info text-white p-2 container text-center" style="max-width: 200px;">
+    <ul id="repos-list"></ul>
+.   </div>
+    </ul>
+    <script>
+        const username = "DanielSegovia07"; 
+        const token = "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"; 
+
+        const reposList = document.getElementById("repos-list");
+
+     
+        const headers = new Headers({
+            "Authorization": `token ${token}`
+        });
+
+        
+        fetch(`https://api.github.com/users/${username}/repos`, { headers })
+            .then((response) => response.json())
+            .then((repos) => {
+               
+                repos.forEach((repo) => {
+                    const li = document.createElement("li");
+                    li.textContent = repo.name;
+                    reposList.appendChild(li);
+                });
+            })
+            .catch((error) => {
+                console.error("Error al conectar a la API de GitHub: " + error);
+            });
+    </script>
+</body>
+</html>
