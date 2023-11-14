@@ -13,16 +13,16 @@
     <h1>Lista de Repositorios de GitHub</h1>
     <div class="rounded bg-info text-white p-2 container text-center" style="max-width: 200px;">
     <ul id="repos-list"></ul>
-.   </div>
+   </div>
     </ul>
     <script>
-        const username = "DanielSegovia07"; 
-        const token = "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"; 
+        let username = "DanielSegovia07"; 
+        let token = "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"; 
 
-        const reposList = document.getElementById("repos-list");
+        let reposList = document.getElementById("repos-list");
 
      
-        const headers = new Headers({
+        let headers = new Headers({
             "Authorization": `token ${token}`
         });
 
