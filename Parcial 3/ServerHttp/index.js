@@ -1,7 +1,7 @@
 const http = require ('http');
 
 const servidor = http.createServer((req,res)=>{
-    // res.setHeader("Access-Control-Allow-Origin","*")
+    //res.setHeader("Access-Control-Allow-Origin","*")
     res.write("Servidor Http Node contestando a peticion get")
     res.end();
 });

@@ -1,12 +1,30 @@
 const express = require('express');
 const cors = require('cors')
+const mysql2 = require('mysql2')
 const app = express();
 
 app.use(cors());
 
-app.get('/',(req,res)=>{//consulta
-    console.log(req.query);
-    res.json({ mensaje:"Servidor Express respondiendo a get"});
+//create connection database
+const connection = mysql2.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password:'070803',
+    database: 'prueba2'
+})
+
+app.get('/',(req,res)=>{//consulta en el diagonal el nombre de la tabla
+    //console.log(req.query.idUsuario);
+    connection.query(
+        'SELECT * FROM personas',
+        function(err, results, fields){
+            console.log(results);
+            console.log(fields);
+
+            console.log(results);//array de objetos
+            res.json(results);
+        }
+    )
 });
 
 app.post('/',(req,res)=>{//alta
