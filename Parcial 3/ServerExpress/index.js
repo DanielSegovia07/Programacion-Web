@@ -13,16 +13,31 @@ const connection = mysql2.createConnection({
     database: 'prueba2'
 })
 
-app.get('/',(req,res)=>{//consulta en el diagonal el nombre de la tabla
-    //console.log(req.query.idUsuario);
-    connection.query(
-        'SELECT * FROM personas',
-        function(err, results, fields){
-            console.log(results);
-            console.log(fields);
+app.get('/personas',(req,res)=>{//consulta en el diagonal el nombre de la tabla
+    
+    console.log(req.query.ID_PERSONA);
 
-            console.log(results);//array de objetos
-            res.json(results);
+    let consulta=''
+
+    if(typeof(req.query.ID_PERSONA)=='undefined'){
+        consulta = `SELECT * FROM personas`;
+    }
+    else{
+        consulta = `SELECT * FROM personas WHERE ID_PERSONA = ${req.query.ID_PERSONA}`;
+    }
+
+    console.log(consulta)
+
+    connection.query(
+        consulta,
+        function(err, results, fields) {
+            if(results.length==0){
+                res.json({ mensaje:"ID_PERSONA no existe"});
+            } 
+            else {
+                res.json(results);
+            }
+            
         }
     )
 });
@@ -38,3 +53,4 @@ app.delete('/',(req,res)=>{//alta
 app.listen(8082,(req,res)=>{
     console.log("Servidor express corriendo en  puerto 8082")
 });
+
