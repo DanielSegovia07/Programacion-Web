@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Formulario Bootstrap</title>
 </head>
-<body style="background-color: black;">
+<body style="background-color: cyan; text-align: center;">
 
 <div class="container mt-5 bg-light">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <form>
+                <div class="form-group">
+                    <label for="apellidop">Apellido paterno:</label>
+                    <input type="text" class="form-control" id="apellidop" placeholder="Ingrese su apellido paterno" name="apellidop">
+                </div>
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" name="nombre">
@@ -20,8 +24,41 @@
                     <label for="edad">Edad:</label>
                     <input type="number" class="form-control" id="edad" placeholder="Ingrese su edad" name="edad">
                 </div>
-                <button type="submit" class="btn btn-primary" id="boton1"></button>
+                <div class="form-group">
+                    <label for="pais">Pais:</label>
+                    <input type="text" class="form-control" id="pais" placeholder="Ingrese su pais" name="pais">
+                    
+                </div>
+                <button type="button" class="btn btn-dark" id="btn_peticion">ENVIAR</button>
             </form>
+            <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+            <script>
+                document.getElementById("btn_peticion").addEventListener("click",async()=>{
+                
+                let id= prompt("ID del Usuario");
+
+                 let response = await fetch(`http://localhost:8082/personas?ID_PERSONA=${id}`, {method:"GET"});
+                 
+                 let data = await response.json();
+                 console.log(data)
+
+                 if(data.status==0){
+                    alert(data.mensaje);
+                    console.log(data.status);
+                 }else{
+                    alert(data.mensaje);
+                    console.log(data.datos);
+                    console.log(data.status);
+                    document.getElementById("nombre").value=data.datos.NOMBRE;
+                    document.getElementById("apellidop").value=data.datos.APELLIDO;
+                    document.getElementById("edad").value=data.datos.EDAD;
+                    document.getElementById("pais").value=data.datos.PAIS;
+                 }
+
+                })
+             </script>
+             
+           
         </div>
     </div>
 </div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+         body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+    </style>
+  </style>
+  <body>
+    <div>
+      <h2>GOTYS</h2>
+  </div><hr>
+    <div id="wrapper"></div>
+
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <script>
+      const img = document.createElement('img');
+      new gridjs.Grid({
+        columns: ['ID', 'TITULO', 'DESARROLLADOR', 'LANZAMIENTO', 'GENERO','PLATAFORMA', 'PRECIO'],
+        server: {
+            url: 'http://localhost:8082/videojuegos',
+            then: data => data.map(videojuego => 
+            [videojuego.ID, videojuego.Titulo , videojuego.Desarrollador, videojuego.Lanzamiento, videojuego.Genero, videojuego.Plataforma, videojuego.Precio]
+            )
+        } 
+        }).render(document.getElementById("wrapper"));
+    </script>
+        
+  </body>
+</html>

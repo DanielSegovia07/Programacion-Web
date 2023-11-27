@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Formulario Bootstrap</title>
+</head>
+<body style="background-color: cyan; text-align: center;">
+
+<div class="container mt-5 bg-light">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="titulo">Titulo:</label>
+                    <input type="text" class="form-control" id="titulo" placeholder="Ingrese el titulo del videojuego" name="titulo">
+                </div>
+                <div class="form-group">
+                    <label for="desarrollador">Desarrollador:</label>
+                    <input type="text" class="form-control" id="desarrollador" placeholder="Ingrese el desarrollador" name="desarrollador">
+                </div>
+                <div class="form-group">
+                    <label for="lanzamiento">lanzamiento:</label>
+                    <input type="datetime" class="form-control" id="lanzamiento" placeholder="Ingrese la fecha de lanzamiento" name="lanzamiento">
+                </div>
+                <div class="form-group">
+                    <label for="genero">Genero:</label>
+                    <input type="text" class="form-control" id="genero" placeholder="Ingrese el genero" name="genero">
+                </div>
+                <div class="form-group">
+                    <label for="plataforma">Plataforma:</label>
+                    <input type="text" class="form-control" id="plataforma" placeholder="Ingrese la plataforma" name="plataforma">
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio" name="precio">
+                </div>
+                <button type="button" class="btn btn-dark" id="btn_peticion">ENVIAR</button>
+            </form>
+            
+            <script>
+                document.getElementById("btn_peticion").addEventListener("click",async()=>{
+                
+                let id= prompt("ID del Videojuego");
+
+                 let response = await fetch(`http://localhost:8082/videojuegos?ID=${id}`, {method:"GET"});
+                
+                 
+                 let data = await response.json();
+                 console.log(data)
+
+                 if(data.status==0){
+                    alert(data.mensaje);
+                    console.log(data.status);
+                 }else{
+                    alert(data.mensaje);
+                    console.log(data.datos);
+                    console.log(data.status);
+                    document.getElementById("titulo").value=data.datos.Titulo;
+                    document.getElementById("desarrollador").value=data.datos.Desarrollador;
+                    document.getElementById("lanzamiento").value=data.datos.Lanzamiento;
+                    document.getElementById("genero").value=data.datos.Genero;
+                    document.getElementById("plataforma").value=data.datos.Plataforma;
+                    document.getElementById("precio").value=data.datos.Precio;
+                 }
+
+                })
+             </script>
+             
+           
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -13,32 +13,32 @@ const connection = mysql2.createConnection({
     database: 'prueba2'
 })
 
-app.get('/personas',(req,res)=>{//consulta en el diagonal el nombre de la tabla
+app.get('/videojuegos',(req,res)=>{//consulta en el diagonal el nombre de la tabla
     
-    console.log(req.query.ID_PERSONA);
+    console.log(req.query.ID);
 
     let consulta=''
 
-    if(typeof(req.query.ID_PERSONA)=='undefined'){
-        consulta = `SELECT * FROM personas`;
+    if(typeof(req.query.ID)=='undefined'){
+        consulta = `SELECT * FROM videojuegos`;
     }
     else{
-        consulta = `SELECT * FROM personas WHERE ID_PERSONA = ${req.query.ID_PERSONA}`;
+        consulta = `SELECT * FROM videojuegos WHERE ID = ${req.query.ID}`;
     }
 
-    console.log(consulta);
+    console.log(consulta)
 
     connection.query(
         consulta,
         function(err, results, fields) {
             if(results.length==0){
                 res.json({ status:0,
-                    mensaje:"ID_PERSONA no existe",
+                    mensaje:"ID no existe",
                     datos: {} });
             } 
             else {
                 res.json({status: 1,
-                        mensaje : "Usuario encontrado",
+                        mensaje : "GOTY encontrado",
                         datos: results[0]});
             }
             
@@ -57,4 +57,3 @@ app.delete('/',(req,res)=>{//alta
 app.listen(8082,(req,res)=>{
     console.log("Servidor express corriendo en  puerto 8082")
 });
-
