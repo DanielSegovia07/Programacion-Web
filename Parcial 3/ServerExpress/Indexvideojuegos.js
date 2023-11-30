@@ -39,21 +39,81 @@ app.get('/videojuegos',(req,res)=>{//consulta en el diagonal el nombre de la tab
             else {
                 res.json({status: 1,
                         mensaje : "GOTY encontrado",
-                        datos: results[0]});
+                        datos: (results.length==1) ? results[0] : results}
+                        );
             }
             
         }
     )
 });
 
-app.post('/',(req,res)=>{//alta
-    res.json({ mensaje:"Servidor Express respondiendo a post"});
+app.post('/videojuegos',(req,res)=>{//alta
+    console.log(req.query);
+    let sentenciaSQL = '';
+    if (typeof(req.query.Titulo) == 'undefined' || typeof(req.query.Desarrollador) == 'undefined' || typeof(req.query.Lanzamiento) == 'undefined' || typeof(req.query.Genero) == 'undefined' || typeof(req.query.Plataforma) == 'undefined' || typeof(req.query.Precio) == 'undefined') {
+        res.json({ 
+            status: 0,
+            mensaje: "Completa todos los campos por favor",
+            datos: {} 
+        });
+    } 
+    else {
+        sentenciaSQL = `INSERT INTO Videojuegos (Titulo, Desarrollador, Lanzamiento, Genero, Plataforma, Precio)VALUES('${req.query.Titulo}', '${req.query.Desarrollador}', '${req.query.Lanzamiento}', '${req.query.Genero}', '${req.query.Plataforma}','${req.query.Precio}')`;
+        console.log(sentenciaSQL);
+        connection.query( sentenciaSQL,function(err, results, fields) {
+                console.log(results);
+                if (results && results.affectedRows == 1) {
+                    res.json({ 
+                        status: 1,
+                        mensaje: "Insercion exitosa",
+                        datos: {} 
+                    });
+                } else {
+                    res.json({ 
+                        status: 0,
+                        mensaje: "Hubo un error al insertar",
+                        datos: {} 
+                    });
+                }
+            }
+        )
+    }
 });
 
-app.delete('/',(req,res)=>{//alta
-    res.json({ mensaje:"Servidor Express respondiendo a delete"});
+app.delete('/videojuegos',(req,res)=>{//delete
+    console.log(req.query.ID);
+
+    let sentenciasql=''
+
+
+    if(typeof(req.query.ID)=='undefined'){
+        res.json({ status:0,
+            mensaje:"Falto enviar ID",
+            datos: {} });
+    }
+    else{
+        sentenciasql = `DELETE FROM videojuegos WHERE ID = ${req.query.ID}`;
+    }
+
+    connection.query( sentenciasql, function(err, results, fields) {
+
+            console.log(err);
+            console.log(results);
+            console.log(fields);
+
+            if (results.affectedRows==1){
+                    res.json({ status:1,
+                    mensaje:"Registro eliminado",
+                    datos: {} });
+            }else{
+                res.json({ status:0,
+                    mensaje:"No se pudo eliminar",
+                    datos: {} });
+            }            
+        }
+    )
 });
 
-app.listen(8082,(req,res)=>{
+app.listen(8082,(req,res)=>{//MODIFICAR
     console.log("Servidor express corriendo en  puerto 8082")
 });
